@@ -9,10 +9,119 @@ To implement a Support Vector Machine (SVM) model to classify food items and opt
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. 
-2. 
-3. 
-4. 
+
+1. **Start**
+
+2. **Import Libraries**
+
+   * Import required libraries:
+
+     * `pandas`, `numpy`
+     * `StandardScaler`
+     * `train_test_split`, `GridSearchCV`
+     * `SVC` (Support Vector Classifier)
+     * Evaluation metrics (`accuracy`, `classification_report`, `confusion_matrix`)
+     * `seaborn`, `matplotlib`
+
+3. **Load Dataset**
+
+   * Read dataset `food_items_binary.csv` into a DataFrame
+   * Display first few rows and column names
+
+4. **Select Features and Target**
+
+   * Define input features `X`:
+
+     * `Calories`, `Total Fat`, `Saturated Fat`, `Sugars`, `Dietary Fiber`, `Protein`
+   * Define target variable `y`:
+
+     * `class`
+
+5. **Split Dataset**
+
+   * Divide data into:
+
+     * Training set (80%)
+     * Testing set (20%)
+   * Use `random_state = 42`
+
+---
+
+### **Data Preprocessing**
+
+6. **Feature Scaling**
+
+   * Initialize `StandardScaler`
+   * Fit and transform training data
+   * Transform testing data using same scaler
+
+---
+
+### **Model Training with Hyperparameter Tuning**
+
+7. **Initialize SVM Model**
+
+   * Create `SVC` model
+
+8. **Define Parameter Grid**
+
+   * Set hyperparameters for tuning:
+
+     * `C`: [0.1, 1, 10, 100]
+     * `kernel`: ['linear', 'rbf']
+     * `gamma`: ['scale', 'auto']
+
+9. **Apply Grid Search**
+
+   * Use `GridSearchCV` with:
+
+     * 5-fold cross-validation (`cv=5`)
+     * Scoring metric: accuracy
+
+10. **Train Model**
+
+* Fit grid search on training data
+* Select best model (`best_estimator_`)
+
+---
+
+### **Prediction**
+
+11. **Make Predictions**
+
+* Predict class labels using test data (`X_test`)
+* Store predictions in `y_pred`
+
+---
+
+### **Model Evaluation**
+
+12. **Calculate Accuracy**
+
+* Compute accuracy score
+
+13. **Generate Classification Report**
+
+* Display precision, recall, and F1-score
+
+14. **Compute Confusion Matrix**
+
+* Generate confusion matrix for predictions
+
+---
+
+### **Visualization**
+
+15. **Plot Confusion Matrix**
+
+* Use heatmap to visualize confusion matrix
+* Label axes and add title
+
+16. **Display Plot**
+
+17. **End**
+
+---
 
 ## Program:
 ```
